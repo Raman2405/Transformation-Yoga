@@ -1,0 +1,821 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transformation Yoga | Charleston, SC</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        mystic: {
+                            50: '#f0f4ff',
+                            100: '#e0e7ff',
+                            200: '#c7d2fe',
+                            300: '#a5b4fc',
+                            400: '#818cf8',
+                            500: '#6366f1',
+                            600: '#4f46e5',
+                            700: '#4338ca',
+                            800: '#3730a3',
+                            900: '#312e81'
+                        },
+                        sunset: {
+                            50: '#fff7ed',
+                            100: '#ffedd5',
+                            200: '#fed7aa',
+                            300: '#fdba74',
+                            400: '#fb923c',
+                            500: '#f97316',
+                            600: '#ea580c',
+                            700: '#c2410c',
+                            800: '#9a3412',
+                            900: '#7c2d12'
+                        },
+                        emerald: {
+                            50: '#ecfdf5',
+                            100: '#d1fae5',
+                            200: '#a7f3d0',
+                            300: '#6ee7b7',
+                            400: '#34d399',
+                            500: '#10b981',
+                            600: '#059669',
+                            700: '#047857',
+                            800: '#065f46',
+                            900: '#064e3b'
+                        },
+                        rose: {
+                            50: '#fff1f2',
+                            100: '#ffe4e6',
+                            200: '#fecdd3',
+                            300: '#fda4af',
+                            400: '#fb7185',
+                            500: '#f43f5e',
+                            600: '#e11d48',
+                            700: '#be123c',
+                            800: '#9f1239',
+                            900: '#881337'
+                        }
+                    },
+                    fontFamily: {
+                        'serif': ['Playfair Display', 'serif'],
+                        'sans': ['Inter', 'sans-serif'],
+                        'script': ['Dancing Script', 'cursive']
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'pulse-glow': 'pulseGlow 3s ease-in-out infinite',
+                        'slide-in-left': 'slideInLeft 1s ease-out',
+                        'slide-in-right': 'slideInRight 1s ease-out',
+                        'fade-in-up': 'fadeInUp 1s ease-out',
+                        'gradient-shift': 'gradientShift 8s ease-in-out infinite',
+                        'sparkle': 'sparkle 2s ease-in-out infinite'
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&family=Dancing+Script:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-15px) rotate(5deg); }
+        }
+        
+        @keyframes pulseGlow {
+            0%, 100% { box-shadow: 0 0 20px rgba(99, 102, 241, 0.4); }
+            50% { box-shadow: 0 0 40px rgba(99, 102, 241, 0.8); }
+        }
+        
+        @keyframes slideInLeft {
+            from { opacity: 0; transform: translateX(-50px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+        
+        @keyframes slideInRight {
+            from { opacity: 0; transform: translateX(50px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+        
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        @keyframes gradientShift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+        
+        @keyframes sparkle {
+            0%, 100% { opacity: 0.3; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.2); }
+        }
+        
+        .hero-bg {
+            background: 
+                linear-gradient(135deg, rgba(99, 102, 241, 0.3) 0%, rgba(249, 115, 22, 0.2) 50%, rgba(16, 185, 129, 0.3) 100%),
+                url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+        
+        .glass-morphism {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        }
+        
+        .gradient-text {
+            background: linear-gradient(135deg, #6366f1, #f97316, #10b981);
+            background-size: 300% 300%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: gradientShift 6s ease-in-out infinite;
+        }
+        
+        .nav-glass {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(99, 102, 241, 0.1);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .magical-card {
+            background: linear-gradient(135deg, 
+                rgba(99, 102, 241, 0.1) 0%, 
+                rgba(249, 115, 22, 0.1) 50%, 
+                rgba(16, 185, 129, 0.1) 100%);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.4s ease;
+        }
+        
+        .magical-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+        
+        .sparkle-effect {
+            position: relative;
+        }
+        
+        .sparkle-effect::after {
+            content: '✨';
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            animation: sparkle 2s ease-in-out infinite;
+        }
+        
+        .yoga-image {
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .yoga-image::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.6), rgba(16, 185, 129, 0.4));
+            transition: all 0.3s ease;
+        }
+        
+        .yoga-image:hover::before {
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.4), rgba(16, 185, 129, 0.2));
+        }
+        
+        .image-overlay {
+            position: relative;
+            z-index: 10;
+        }
+        
+        .btn-magical {
+            background: linear-gradient(135deg, #6366f1, #f97316, #10b981);
+            background-size: 300% 300%;
+            animation: gradientShift 4s ease-in-out infinite;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(99, 102, 241, 0.3);
+        }
+        
+        .btn-magical:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(99, 102, 241, 0.4);
+        }
+        
+        .stats-counter {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.7));
+            backdrop-filter: blur(10px);
+        }
+    </style>
+</head>
+<body class="font-sans bg-gradient-to-br from-mystic-50 via-emerald-50 to-sunset-50 text-gray-800">
+    <!-- Enhanced Navigation -->
+    <nav class="nav-glass sticky top-0 z-50 transition-all duration-500">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center space-x-4">
+                    <div class="w-14 h-14 bg-gradient-to-br from-mystic-500 via-emerald-500 to-sunset-500 rounded-full flex items-center justify-center shadow-lg animate-pulse-glow sparkle-effect">
+                        <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                        </svg>
+                    </div>
+                    <div>
+                        <h1 class="text-3xl font-serif font-bold gradient-text">Transformation Yoga</h1>
+                        <p class="text-sm text-mystic-600 font-script">Charleston's Magical Sanctuary ✨</p>
+                    </div>
+                </div>
+                
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#home" class="text-gray-700 hover:text-mystic-600 transition-all duration-300 font-semibold text-lg relative group">
+                        Home
+                        <span class="absolute bottom-0 left-0 w-0 h-1 bg-gradient-to-r from-mystic-500 to-emerald-500 transition-all duration-300 group-hover:w-full rounded-full"></span>
+                    </a>
+                    <a href="#about" class="text-gray-700 hover:text-mystic-600 transition-all duration-300 font-semibold text-lg relative group">
+                        About
+                        <span class="absolute bottom-0 left-0 w-0 h-1 bg-gradient-to-r from-mystic-500 to-emerald-500 transition-all duration-300 group-hover:w-full rounded-full"></span>
+                    </a>
+                    <a href="#classes" class="text-gray-700 hover:text-mystic-600 transition-all duration-300 font-semibold text-lg relative group">
+                        Classes
+                        <span class="absolute bottom-0 left-0 w-0 h-1 bg-gradient-to-r from-mystic-500 to-emerald-500 transition-all duration-300 group-hover:w-full rounded-full"></span>
+                    </a>
+                    <a href="#contact" class="text-gray-700 hover:text-mystic-600 transition-all duration-300 font-semibold text-lg relative group">
+                        Contact
+                        <span class="absolute bottom-0 left-0 w-0 h-1 bg-gradient-to-r from-mystic-500 to-emerald-500 transition-all duration-300 group-hover:w-full rounded-full"></span>
+                    </a>
+                    
+                    <a href="tel:+18436959688" 
+                       class="btn-magical text-white px-6 py-3 rounded-full font-semibold text-lg shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300">
+                        <span class="flex items-center space-x-2">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/>
+                            </svg>
+                            <span>Call Now</span>
+                        </span>
+                    </a>
+                </div>
+                
+                <button id="mobile-menu-btn" class="md:hidden p-3 rounded-xl glass-morphism">
+                    <svg class="w-6 h-6 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+            
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="hidden md:hidden mt-6 glass-morphism rounded-2xl p-6">
+                <div class="flex flex-col space-y-4">
+                    <a href="#home" class="text-gray-700 hover:text-mystic-600 transition-colors font-semibold py-2">Home</a>
+                    <a href="#about" class="text-gray-700 hover:text-mystic-600 transition-colors font-semibold py-2">About</a>
+                    <a href="#classes" class="text-gray-700 hover:text-mystic-600 transition-colors font-semibold py-2">Classes</a>
+                    <a href="#contact" class="text-gray-700 hover:text-mystic-600 transition-colors font-semibold py-2">Contact</a>
+                    <a href="tel:+18436959688" class="btn-magical text-white px-6 py-3 rounded-full font-semibold text-center mt-4">
+                        Call Now
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-bg min-h-screen flex items-center relative overflow-hidden">
+        <div class="container mx-auto px-6 text-center relative z-10">
+            <div class="max-w-5xl mx-auto animate-fade-in-up">
+                <div class="glass-morphism rounded-3xl p-12 mb-8">
+                    <div class="animate-float mb-8">
+                        <svg class="w-20 h-20 text-mystic-600 mx-auto" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M10 2a8 8 0 100 16 8 8 0 000-16zM8 10a2 2 0 114 0 2 2 0 01-4 0z"/>
+                        </svg>
+                    </div>
+                    
+                    <h1 class="text-7xl md:text-9xl font-serif font-light gradient-text mb-8 leading-tight">
+                        Transformation<br>
+                        <span class="font-script italic">Yoga</span>
+                    </h1>
+                    
+                    <div class="w-32 h-1 bg-gradient-to-r from-mystic-500 via-emerald-500 to-sunset-500 mx-auto mb-8 rounded-full"></div>
+                    
+                    <p class="text-4xl font-light text-gray-700 mb-6 font-script">Flow. Breathe. Transform. ✨</p>
+                    <p class="text-xl text-gray-600 mb-8 flex items-center justify-center space-x-2">
+                        <svg class="w-6 h-6 text-emerald-500" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z"/>
+                        </svg>
+                        <span>Charleston, South Carolina</span>
+                    </p>
+                </div>
+                
+                <div class="flex flex-col sm:flex-row gap-6 justify-center items-center">
+                    <a href="tel:+18436959688" 
+                       class="btn-magical text-white px-12 py-5 rounded-full font-bold text-xl">
+                        Call Now ✨
+                    </a>
+                    <a href="#about" 
+                       class="glass-morphism text-gray-700 px-12 py-5 rounded-full hover:bg-white/30 transition-all duration-300 font-bold text-xl">
+                        Discover Magic 🌟
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Complete About Section -->
+    <section id="about" class="py-32 bg-gradient-to-br from-white via-mystic-50 to-emerald-50 relative overflow-hidden">
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="max-w-7xl mx-auto">
+                <!-- Section Header -->
+                <div class="text-center mb-20 animate-fade-in-up">
+                    <h2 class="text-6xl md:text-7xl font-serif font-light gradient-text mb-10">
+                        About Our Sacred Sanctuary
+                    </h2>
+                    <div class="w-32 h-1 bg-gradient-to-r from-mystic-500 via-emerald-500 to-sunset-500 mx-auto mb-12 rounded-full"></div>
+                    <p class="text-2xl text-gray-600 max-w-4xl mx-auto leading-relaxed font-light">
+                        Where ancient wisdom meets Southern hospitality in the heart of Charleston ✨
+                    </p>
+                </div>
+                
+                <!-- Stats Section -->
+                <div class="grid md:grid-cols-4 gap-8 mb-20 animate-slide-in-left">
+                    <div class="stats-counter text-center p-8 rounded-2xl shadow-lg">
+                        <div class="text-4xl font-bold gradient-text mb-2">500+</div>
+                        <div class="text-gray-600 font-medium">Happy Students</div>
+                    </div>
+                    <div class="stats-counter text-center p-8 rounded-2xl shadow-lg">
+                        <div class="text-4xl font-bold gradient-text mb-2">5+</div>
+                        <div class="text-gray-600 font-medium">Years Experience</div>
+                    </div>
+                    <div class="stats-counter text-center p-8 rounded-2xl shadow-lg">
+                        <div class="text-4xl font-bold gradient-text mb-2">15+</div>
+                        <div class="text-gray-600 font-medium">Class Types</div>
+                    </div>
+                    <div class="stats-counter text-center p-8 rounded-2xl shadow-lg">
+                        <div class="text-4xl font-bold gradient-text mb-2">100%</div>
+                        <div class="text-gray-600 font-medium">Transformation</div>
+                    </div>
+                </div>
+                
+                <!-- Main Story -->
+                <div class="magical-card rounded-3xl p-12 mb-20 animate-fade-in-up">
+                    <div class="grid lg:grid-cols-2 gap-16 items-center">
+                        <div>
+                            <h3 class="text-4xl font-serif gradient-text mb-8">Our Story</h3>
+                            <p class="text-xl text-gray-700 leading-relaxed mb-6">
+                                A peaceful space in Charleston where transformation begins — welcoming minds and bodies of all levels. Our journey started with a simple vision: to create a sanctuary where the ancient practice of yoga meets the warm hospitality of Charleston.
+                            </p>
+                            <p class="text-lg text-gray-600 leading-relaxed mb-6">
+                                Founded in 2020, Transformation Yoga has grown from a small studio to Charleston's premier yoga destination. We believe that yoga is not just about physical postures, but a complete journey of self-discovery, healing, and transformation.
+                            </p>
+                            <p class="text-lg text-gray-600 leading-relaxed">
+                                Every day, we witness the magic that happens when people connect with their breath, their bodies, and their inner wisdom. This is what drives our passion and commitment to creating an inclusive, supportive environment for all.
+                            </p>
+                        </div>
+                        <div class="yoga-image h-96 rounded-2xl" style="background-image: url('https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');">
+                            <div class="image-overlay h-full flex items-center justify-center">
+                                <div class="text-center text-white">
+                                    <h4 class="text-3xl font-serif mb-4">Sacred Space</h4>
+                                    <p class="text-lg opacity-90">Where transformation begins</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Philosophy Section -->
+                <div class="grid lg:grid-cols-2 gap-16 mb-20">
+                    <div class="animate-slide-in-left">
+                        <div class="magical-card rounded-3xl p-10">
+                            <div class="flex items-center space-x-4 mb-8">
+                                <div class="w-16 h-16 bg-gradient-to-br from-mystic-500 to-emerald-500 rounded-full flex items-center justify-center sparkle-effect">
+                                    <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                        <path d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z"/>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h3 class="text-3xl font-serif gradient-text">Our Philosophy</h3>
+                                    <p class="text-emerald-600 font-script text-lg">Honoring every journey ✨</p>
+                                </div>
+                            </div>
+                            
+                            <p class="text-lg text-gray-700 leading-relaxed mb-6">
+                                We believe that yoga is a practice of self-discovery and transformation. Our approach honors the traditional roots of yoga while making it accessible and relevant for modern life.
+                            </p>
+                            
+                            <div class="space-y-4">
+                                <div class="flex items-center space-x-3">
+                                    <div class="w-2 h-2 bg-gradient-to-r from-mystic-500 to-emerald-500 rounded-full"></div>
+                                    <span class="text-gray-600">Inclusive and welcoming to all bodies and abilities</span>
+                                </div>
+                                <div class="flex items-center space-x-3">
+                                    <div class="w-2 h-2 bg-gradient-to-r from-emerald-500 to-sunset-500 rounded-full"></div>
+                                    <span class="text-gray-600">Emphasis on mindfulness and breath awareness</span>
+                                </div>
+                                <div class="flex items-center space-x-3">
+                                    <div class="w-2 h-2 bg-gradient-to-r from-sunset-500 to-mystic-500 rounded-full"></div>
+                                    <span class="text-gray-600">Community-centered approach to healing</span>
+                                </div>
+                                <div class="flex items-center space-x-3">
+                                    <div class="w-2 h-2 bg-gradient-to-r from-mystic-500 to-rose-500 rounded-full"></div>
+                                    <span class="text-gray-600">Integration of body, mind, and spirit</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="animate-slide-in-right">
+                        <div class="magical-card rounded-3xl p-10">
+                            <div class="flex items-center space-x-4 mb-8">
+                                <div class="w-16 h-16 bg-gradient-to-br from-sunset-500 to-rose-500 rounded-full flex items-center justify-center sparkle-effect">
+                                    <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h3 class="text-3xl font-serif gradient-text">Our Mission</h3>
+                                    <p class="text-sunset-600 font-script text-lg">Transforming lives daily 🌟</p>
+                                </div>
+                            </div>
+                            
+                            <p class="text-lg text-gray-700 leading-relaxed mb-6">
+                                To provide a welcoming sanctuary where individuals can explore the transformative power of yoga, building strength, flexibility, and inner peace while fostering a supportive community.
+                            </p>
+                            
+                            <div class="bg-gradient-to-r from-mystic-50 to-emerald-50 rounded-2xl p-6">
+                                <h4 class="text-xl font-serif text-gray-800 mb-4">What Makes Us Special</h4>
+                                <ul class="space-y-3 text-gray-600">
+                                    <li class="flex items-start space-x-3">
+                                        <span class="text-emerald-500 mt-1">🧘‍♀️</span>
+                                        <span>Certified instructors with 200+ hours of training</span>
+                                    </li>
+                                    <li class="flex items-start space-x-3">
+                                        <span class="text-mystic-500 mt-1">🌿</span>
+                                        <span>Eco-friendly studio with natural materials</span>
+                                    </li>
+                                    <li class="flex items-start space-x-3">
+                                        <span class="text-sunset-500 mt-1">💫</span>
+                                        <span>Small class sizes for personalized attention</span>
+                                    </li>
+                                    <li class="flex items-start space-x-3">
+                                        <span class="text-rose-500 mt-1">❤️</span>
+                                        <span>Trauma-informed and body-positive approach</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Teacher Section -->
+                <div class="magical-card rounded-3xl p-12 mb-20 animate-fade-in-up">
+                    <div class="text-center mb-12">
+                        <h3 class="text-4xl font-serif gradient-text mb-4">Meet Our Founder</h3>
+                        <div class="w-24 h-1 bg-gradient-to-r from-mystic-500 to-emerald-500 mx-auto mb-8 rounded-full"></div>
+                    </div>
+                    
+                    <div class="grid lg:grid-cols-3 gap-12 items-center">
+                        <div class="lg:col-span-1">
+                            <div class="yoga-image h-80 rounded-2xl" style="background-image: url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80');">
+                                <div class="image-overlay h-full flex items-end p-6">
+                                    <div class="text-white">
+                                        <h4 class="text-2xl font-serif mb-2">Sarah Johnson</h4>
+                                        <p class="text-sm opacity-90">Founder & Lead Instructor</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="lg:col-span-2">
+                            <div class="space-y-6">
+                                <p class="text-xl text-gray-700 leading-relaxed">
+                                    "My journey with yoga began over a decade ago during a challenging period in my life. What started as a search for physical healing became a profound spiritual transformation that changed everything."
+                                </p>
+                                <p class="text-lg text-gray-600 leading-relaxed">
+                                    Sarah is a certified yoga instructor (RYT-500) with specialized training in trauma-informed yoga, prenatal yoga, and meditation. She has studied with renowned teachers across India, Bali, and the United States, bringing a rich tapestry of wisdom to her teaching.
+                                </p>
+                                <div class="grid md:grid-cols-2 gap-6">
+                                    <div class="bg-mystic-50 rounded-xl p-6">
+                                        <h5 class="font-semibold text-mystic-800 mb-2">Certifications</h5>
+                                        <ul class="text-sm text-gray-600 space-y-1">
+                                            <li>• RYT-500 Yoga Alliance</li>
+                                            <li>• Trauma-Informed Yoga</li>
+                                            <li>• Prenatal Yoga Specialist</li>
+                                            <li>• Meditation Teacher Training</li>
+                                        </ul>
+                                    </div>
+                                    <div class="bg-emerald-50 rounded-xl p-6">
+                                        <h5 class="font-semibold text-emerald-800 mb-2">Teaching Style</h5>
+                                        <p class="text-sm text-gray-600">
+                                            Gentle, inclusive, and heart-centered approach that honors each student's unique journey and creates space for authentic transformation.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Values Section -->
+                <div class="grid md:grid-cols-3 gap-8 animate-fade-in-up">
+                    <div class="magical-card rounded-2xl p-8 text-center">
+                        <div class="w-16 h-16 bg-gradient-to-br from-mystic-500 to-emerald-500 rounded-full flex items-center justify-center mx-auto mb-6 sparkle-effect">
+                            <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z"/>
+                            </svg>
+                        </div>
+                        <h4 class="text-2xl font-serif gradient-text mb-4">Inclusivity</h4>
+                        <p class="text-gray-600 leading-relaxed">
+                            Every body, every story, every journey is welcome here. We celebrate diversity and create space for all to feel at home and supported.
+                        </p>
+                    </div>
+                    
+                    <div class="magical-card rounded-2xl p-8 text-center">
+                        <div class="w-16 h-16 bg-gradient-to-br from-emerald-500 to-sunset-500 rounded-full flex items-center justify-center mx-auto mb-6 sparkle-effect">
+                            <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                            </svg>
+                        </div>
+                        <h4 class="text-2xl font-serif gradient-text mb-4">Authenticity</h4>
+                        <p class="text-gray-600 leading-relaxed">
+                            We honor the traditional roots of yoga while making it accessible and relevant for modern life in Charleston's unique cultural landscape.
+                        </p>
+                    </div>
+                    
+                    <div class="magical-card rounded-2xl p-8 text-center">
+                        <div class="w-16 h-16 bg-gradient-to-br from-sunset-500 to-rose-500 rounded-full flex items-center justify-center mx-auto mb-6 sparkle-effect">
+                            <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3z"/>
+                            </svg>
+                        </div>
+                        <h4 class="text-2xl font-serif gradient-text mb-4">Community</h4>
+                        <p class="text-gray-600 leading-relaxed">
+                            We believe in the power of connection and support, fostering relationships that extend beyond the mat into daily life.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Classes Section -->
+    <section id="classes" class="py-20 bg-gradient-to-br from-emerald-50 via-sunset-50 to-mystic-50">
+        <div class="container mx-auto px-6">
+            <div class="max-w-6xl mx-auto">
+                <div class="text-center mb-16 animate-fade-in-up">
+                    <h2 class="text-5xl font-serif font-light gradient-text mb-8">
+                        Our Classes
+                    </h2>
+                    <div class="w-24 h-1 bg-gradient-to-r from-mystic-500 to-emerald-500 mx-auto mb-8 rounded-full"></div>
+                    <p class="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+                        From gentle flows to dynamic sequences, discover the practice that speaks to your soul ✨
+                    </p>
+                </div>
+                
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="magical-card rounded-2xl overflow-hidden">
+                        <div class="yoga-image h-48" style="background-image: url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80');">
+                            <div class="image-overlay h-full flex items-center justify-center">
+                                <div class="w-16 h-16 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center animate-float">
+                                    <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                        <path d="M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4zM3 10a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H4a1 1 0 01-1-1v-6zM14 9a1 1 0 00-1 1v6a1 1 0 001 1h2a1 1 0 001-1v-6a1 1 0 00-1-1h-2z"/>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="p-8 text-center">
+                            <h3 class="text-2xl font-serif gradient-text mb-4">Gentle Flow</h3>
+                            <p class="text-gray-600 mb-6 leading-relaxed">Perfect for beginners and those seeking a mindful, restorative practice.</p>
+                            <div class="flex justify-center space-x-2">
+                                <span class="px-3 py-1 bg-mystic-100 text-mystic-700 rounded-full text-sm font-medium">Beginner</span>
+                                <span class="px-3 py-1 bg-emerald-100 text-emerald-700 rounded-full text-sm font-medium">Restorative</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="magical-card rounded-2xl overflow-hidden">
+                        <div class="yoga-image h-48" style="background-image: url('https://images.unsplash.com/photo-1599901860904-17e6ed7083a0?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80');">
+                            <div class="image-overlay h-full flex items-center justify-center">
+                                <div class="w-16 h-16 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center animate-float" style="animation-delay: -2s;">
+                                    <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                        <path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3z"/>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="p-8 text-center">
+                            <h3 class="text-2xl font-serif gradient-text mb-4">Vinyasa Flow</h3>
+                            <p class="text-gray-600 mb-6 leading-relaxed">Dynamic sequences that build strength while maintaining grace and fluidity.</p>
+                            <div class="flex justify-center space-x-2">
+                                <span class="px-3 py-1 bg-emerald-100 text-emerald-700 rounded-full text-sm font-medium">Intermediate</span>
+                                <span class="px-3 py-1 bg-sunset-100 text-sunset-700 rounded-full text-sm font-medium">Dynamic</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="magical-card rounded-2xl overflow-hidden">
+                        <div class="yoga-image h-48" style="background-image: url('https://images.unsplash.com/photo-1588286840104-8957b019727f?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80');">
+                            <div class="image-overlay h-full flex items-center justify-center">
+                                <div class="w-16 h-16 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center animate-float" style="animation-delay: -4s;">
+                                    <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="p-8 text-center">
+                            <h3 class="text-2xl font-serif gradient-text mb-4">Meditation</h3>
+                            <p class="text-gray-600 mb-6 leading-relaxed">Cultivate inner peace and mindfulness through guided meditation practices.</p>
+                            <div class="flex justify-center space-x-2">
+                                <span class="px-3 py-1 bg-sunset-100 text-sunset-700 rounded-full text-sm font-medium">All Levels</span>
+                                <span class="px-3 py-1 bg-mystic-100 text-mystic-700 rounded-full text-sm font-medium">Mindful</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonial Section -->
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="max-w-4xl mx-auto text-center">
+                <div class="magical-card rounded-3xl p-12 shadow-xl animate-fade-in-up yoga-image" style="background-image: url('https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80');">
+                    <div class="image-overlay">
+                        <div class="mb-8">
+                            <svg class="w-12 h-12 text-white/80 mx-auto mb-6" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/>
+                            </svg>
+                        </div>
+                        
+                        <blockquote class="text-3xl font-light text-white mb-8 italic leading-relaxed font-serif">
+                            "This space is a sanctuary. From my first session, I felt lighter." ✨
+                        </blockquote>
+                        
+                        <div class="flex items-center justify-center space-x-4">
+                            <div class="w-12 h-12 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center">
+                                <span class="text-white font-semibold">S</span>
+                            </div>
+                            <div class="text-left">
+                                <p class="font-semibold text-white">Sarah M.</p>
+                                <p class="text-white/80">Charleston Resident</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Enhanced Contact Section -->
+    <footer id="contact" class="bg-gradient-to-br from-gray-800 via-mystic-900 to-emerald-900 text-white py-32 relative overflow-hidden">
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="max-w-7xl mx-auto">
+                <div class="text-center mb-20 animate-fade-in-up">
+                    <h2 class="text-6xl md:text-7xl font-serif font-light mb-8">
+                        <span class="bg-gradient-to-r from-white via-mystic-200 to-emerald-200 bg-clip-text text-transparent">
+                            Begin Your Journey
+                        </span>
+                    </h2>
+                    <div class="w-32 h-1 bg-gradient-to-r from-mystic-500 via-emerald-500 to-sunset-500 mx-auto mb-12 rounded-full"></div>
+                    <p class="text-2xl text-gray-300 max-w-4xl mx-auto leading-relaxed">
+                        Take the first step towards transformation. Your sacred sanctuary awaits in Charleston. ✨
+                    </p>
+                </div>
+                
+                <div class="grid lg:grid-cols-2 gap-16 mb-20">
+                    <div class="animate-slide-in-left">
+                        <h3 class="text-4xl font-serif mb-8 gradient-text">Visit Our Sanctuary</h3>
+                        <div class="space-y-8">
+                            <div class="flex items-start space-x-6">
+                                <div class="w-16 h-16 bg-gradient-to-br from-emerald-600 to-mystic-600 rounded-full flex items-center justify-center shadow-lg sparkle-effect">
+                                    <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                        <path d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z"/>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h4 class="text-2xl font-semibold text-white mb-2">Studio Location</h4>
+                                    <p class="text-xl text-gray-300 mb-2">Charleston, South Carolina</p>
+                                    <p class="text-emerald-400">In the heart of the Holy City</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start space-x-6">
+                                <div class="w-16 h-16 bg-gradient-to-br from-sunset-600 to-rose-600 rounded-full flex items-center justify-center shadow-lg sparkle-effect">
+                                    <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                        <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h4 class="text-2xl font-semibold text-white mb-2">Phone & Text</h4>
+                                    <a href="tel:+18436959688" class="text-2xl font-bold text-emerald-400 hover:text-emerald-300 transition-colors">
+                                        (843) 695-9688
+                                    </a>
+                                    <p class="text-gray-300">Available daily 6:00 AM - 9:00 PM</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="animate-slide-in-right">
+                        <div class="flex flex-col gap-6">
+                            <a href="tel:+18436959688" 
+                               class="btn-magical text-white px-8 py-4 rounded-full font-semibold text-lg text-center">
+                                Call Now ✨
+                            </a>
+                            <a href="https://maps.google.com/?q=Charleston,SC" 
+                               target="_blank"
+                               class="glass-morphism text-gray-300 px-8 py-4 rounded-full hover:bg-white/10 transition-all duration-300 font-semibold text-lg border border-gray-600 text-center">
+                                Find Us 🌟
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="border-t border-gray-700 pt-12 text-center">
+                    <div class="flex items-center justify-center space-x-3 mb-6">
+                        <div class="w-8 h-8 bg-gradient-to-br from-mystic-500 to-emerald-500 rounded-full flex items-center justify-center">
+                            <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M10 2L3 7v11a2 2 0 002 2h10a2 2 0 002-2V7l-7-5z"/>
+                            </svg>
+                        </div>
+                        <span class="text-2xl font-serif">Transformation Yoga</span>
+                    </div>
+                    <p class="text-gray-400 text-sm">© 2025 Transformation Yoga. Namaste. 🙏✨</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        if (mobileMenuBtn && mobileMenu) {
+            mobileMenuBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+        }
+        
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                    if (mobileMenu) {
+                        mobileMenu.classList.add('hidden');
+                    }
+                }
+            });
+        });
+        
+        // Scroll effects
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('nav');
+            if (header) {
+                if (window.scrollY > 100) {
+                    header.style.background = 'rgba(255, 255, 255, 0.98)';
+                } else {
+                    header.style.background = 'rgba(255, 255, 255, 0.95)';
+                }
+            }
+        });
+        
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+        
+        // Observe elements for animations
+        document.querySelectorAll('.animate-fade-in-up, .animate-slide-in-left, .animate-slide-in-right').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
